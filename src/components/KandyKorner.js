@@ -4,7 +4,7 @@ import { LocationProvider } from "./locations/LocationProvider"
 
 export const KandyKorner = () => (
     <>
-        <h2>Kandy Korner!</h2>
+        <h2>Kandy Korner Locations</h2>
         <LocationProvider>
             <LocationList />
         </LocationProvider>
