@@ -11,7 +11,7 @@ export const ApplicationViews = (props) => {
     return (
         <>
             <LocationProvider>
-                <Route path="/locations">
+                <Route exact path="/">
                     <LocationList />
                 </Route>
             </LocationProvider>
@@ -26,7 +26,7 @@ export const ApplicationViews = (props) => {
 
 /*
 <LocationProvider>
-    <Route path="/Locations">
+    <Route path="/locations">
          <LocationList />
     </Route>
 </LocationProvider>
