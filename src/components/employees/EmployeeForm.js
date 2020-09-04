@@ -19,6 +19,8 @@ export const EmployeeForm = (props) => {
 
     const constructNewEmployee = () => {
         const locationId = parseInt(location.current.value)
+        const managerBool = JSON.parse(manager.current.value)
+        const fulltimeBool = JSON.parse(fulltime.current.value)
 
         if (locationId === 0) {
             window.alert("Please select a location")
@@ -26,8 +28,8 @@ export const EmployeeForm = (props) => {
             addEmployee({
                 name: name.current.value,
                 locationId,
-                manager: manager.current.value,
-                fulltime: fulltime.current.value,
+                managerBool,
+                fulltimeBool,
                 rate: rate.current.value
             })
             .then(() => props.history.push("/employees"))
