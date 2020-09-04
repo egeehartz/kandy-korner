@@ -67,7 +67,7 @@ export const EmployeeForm = (props) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="rate">Hourly Rate: </label>
-                    <input defaultValue="" name="rate" ref={fulltime} id="employeeRate" className="form-control" />
+                    <input defaultValue="" name="rate" ref={rate} id="employeeRate" className="form-control" />
                 </div>
             </fieldset>
             <button type="submit"
