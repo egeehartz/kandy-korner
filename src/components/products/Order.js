@@ -1,8 +1,13 @@
 import React from "react"
+import {CandyCustomersContext} from "./CandyCustomersProvider"
 
 
-export const MyOrder = ({order}) => (
+export const MyOrder = ({order}, ) => (
+
     <>
+    <section>
+        <div>{order.product.name} for ${order.product.price}</div>
+    </section>
     </>
 )
     /*<section className="product">

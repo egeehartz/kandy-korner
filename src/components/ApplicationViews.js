@@ -7,7 +7,8 @@ import {ProductProvider} from "./products/ProductProvider"
 import { EmployeeProvider } from "./employees/EmployeeProvider"
 import {EmployeeList} from "./employees/EmployeeList"
 import {EmployeeForm} from "./employees/EmployeeForm"
-import {CandyCustomer} from "./products/CandyCustomersProvider"
+import { CandyCustomersProvider} from "./products/CandyCustomersProvider"
+import {OrderList} from "./products/OrderList"
 
 
 
@@ -20,9 +21,11 @@ export const ApplicationViews = (props) => {
                 </Route>
             </LocationProvider>
             <ProductProvider>
-                <Route path="/products">
-                    <ProductList />
-                </Route>
+                <CandyCustomersProvider>
+                    <Route path="/products">
+                        <ProductList />
+                    </Route>
+                </CandyCustomersProvider>
             </ProductProvider>
             <EmployeeProvider>
                 <LocationProvider>
@@ -34,14 +37,13 @@ export const ApplicationViews = (props) => {
                 } />
                 </LocationProvider>
             </EmployeeProvider>
+            <CandyCustomersProvider>
+                <Route path="/order">
+                <OrderList />
+                </Route>
+            </CandyCustomersProvider>
         </>
     )
 }
 
-/*
-<CandyCustomerProvider>
-    <Route path="/order">
-         <OrderList />
-    </Route>
-</CandyCustomerProvider>
-*/
+

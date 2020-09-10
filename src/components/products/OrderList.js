@@ -1,14 +1,10 @@
 import React, {useContext,useEffect} from "react"
-import {CandyCustomerContext} from "./CandyCustomerProvider"
-import {CandyCustomer} from "./CandyCustomer"
-import { ProductContext } from "./ProductProvider"
-//import{CustomerContext} from "../"
+import {CandyCustomersContext} from "./CandyCustomersProvider"
+import {MyOrder} from "./Order"
 
 
-export const CandyCustomerList = () => {
-    const {candyCustomers, getCandyCustomers} = useContext(CandyCustomerContext)
-   // const{customers, getCustomers} = useContext(CustomerContext)
-   const {products, getProducts} = useContext(ProductContext)
+export const OrderList = () => {
+    const {candyCustomers, getCandyCustomers} = useContext(CandyCustomersContext)
 
     useEffect(() => {
         getCandyCustomers()
@@ -20,7 +16,7 @@ export const CandyCustomerList = () => {
     return (
         <div className="candyCustomers">
             {
-                candyCustomers.map(cc => <CandyCustomer key={cc.id} CandyCustomer={cc} />)
+                candyCustomers.map(cc => <MyOrder key={cc.id} order={cc} />)
             }
         </div>
     )

@@ -3,10 +3,10 @@ import React, {useState} from "react"
 export const CandyCustomersContext = React.createContext()
 
 export const CandyCustomersProvider = (props) => {
-    const [CandyCustomers, setCandyCustomers] = useState([])
+    const [candyCustomers, setCandyCustomers] = useState([])
 
     const getCandyCustomers = () => {
-        return fetch("http://localhost:8088/candyCustomers")
+        return fetch("http://localhost:8088/candyCustomers?_expand=customer&_expand=product")
             .then(res => res.json())
             .then(setCandyCustomers)
     }
@@ -24,7 +24,7 @@ export const CandyCustomersProvider = (props) => {
 
     return (
         <CandyCustomersContext.Provider value={{
-            CandyCustomers, addCandyCustomers, getCandyCustomers
+            candyCustomers, addCandyCustomers, getCandyCustomers
         }}>
             {props.children}
         </CandyCustomersContext.Provider>
