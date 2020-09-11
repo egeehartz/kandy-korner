@@ -11,6 +11,7 @@ import { CandyCustomersProvider} from "./products/CandyCustomersProvider"
 import {OrderList} from "./products/OrderList"
 import {CustomerList} from "./customers/CustomerList"
 import {CustomerProvider} from "./customers/CustomerProvider"
+import {ProductSearch} from "./products/ProductSearch"
 
 
 
@@ -24,8 +25,12 @@ export const ApplicationViews = (props) => {
             </LocationProvider>
             <ProductProvider>
                 <CandyCustomersProvider>
-                    <Route path="/products">
-                        <ProductList />
+                    <Route exact path="/products" render={(props) => {
+                        return <>
+                        <ProductSearch />
+                        <ProductList history={props.histor}/>
+                        </>
+                    }}>
                     </Route>
                 </CandyCustomersProvider>
             </ProductProvider>
