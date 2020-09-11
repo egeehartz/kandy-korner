@@ -12,6 +12,7 @@ import {OrderList} from "./products/OrderList"
 import {CustomerList} from "./customers/CustomerList"
 import {CustomerProvider} from "./customers/CustomerProvider"
 import {ProductSearch} from "./products/ProductSearch"
+import {LocationDetail} from "./locations/LocationDetail"
 
 
 
@@ -19,12 +20,14 @@ export const ApplicationViews = (props) => {
     return (
         <>
             <LocationProvider>
+                <EmployeeProvider>
                 <Route exact path="/">
                     <LocationList />
                 </Route>
                 <Route path="/locations/:locationId(\d+)" render={
                             props => <LocationDetail {...props} />
                         } />
+                </EmployeeProvider>
             </LocationProvider>
             <ProductProvider>
                 <CandyCustomersProvider>
