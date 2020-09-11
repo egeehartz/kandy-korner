@@ -28,7 +28,7 @@ export const ApplicationViews = (props) => {
                     <Route exact path="/products" render={(props) => {
                         return <>
                         <ProductSearch />
-                        <ProductList history={props.histor}/>
+                        <ProductList history={props.history}/>
                         </>
                     }}>
                     </Route>
