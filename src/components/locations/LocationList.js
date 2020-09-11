@@ -7,13 +7,10 @@ export const LocationList = () => {
     const { locations, getLocations } = useContext(LocationContext)
 
     useEffect(() => {
-        console.log("LocationList: Initial render before data")
         getLocations()
     }, [])
 
     useEffect(() => {
-        console.log("LocationList: Location state changed")
-        console.log(locations)
     }, [locations])
 
     return (

@@ -4,6 +4,14 @@ import {LocationProvider} from "./locations/LocationProvider"
 import {LocationList} from "./locations/LocationList"
 import {ProductList} from "./products/ProductList"
 import {ProductProvider} from "./products/ProductProvider"
+import { EmployeeProvider } from "./employees/EmployeeProvider"
+import {EmployeeList} from "./employees/EmployeeList"
+import {EmployeeForm} from "./employees/EmployeeForm"
+import { CandyCustomersProvider} from "./products/CandyCustomersProvider"
+import {OrderList} from "./products/OrderList"
+import {CustomerList} from "./customers/CustomerList"
+import {CustomerProvider} from "./customers/CustomerProvider"
+import {ProductSearch} from "./products/ProductSearch"
 
 
 
@@ -16,18 +24,39 @@ export const ApplicationViews = (props) => {
                 </Route>
             </LocationProvider>
             <ProductProvider>
-                <Route path="/products">
-                    <ProductList />
-                </Route>
+                <CandyCustomersProvider>
+                    <Route exact path="/products" render={(props) => {
+                        return <>
+                        <ProductSearch />
+                        <ProductList history={props.histor}/>
+                        </>
+                    }}>
+                    </Route>
+                </CandyCustomersProvider>
             </ProductProvider>
+            <EmployeeProvider>
+                <LocationProvider>
+                <Route exact path="/employees" render={
+                    props => <EmployeeList {...props} />
+                } />
+                <Route exact path="/employees/create" render={
+                    props => <EmployeeForm {...props}/>    
+                } />
+                </LocationProvider>
+            </EmployeeProvider>
+            <CandyCustomersProvider>
+                <Route path="/order">
+                <OrderList />
+                </Route>
+            </CandyCustomersProvider>
+ <CustomerProvider>
+    <Route path="/customers">
+        <CustomerList />
+    </Route>
+ </CustomerProvider>
         </>
     )
 }
 
-/*
-<LocationProvider>
-    <Route path="/locations">
-         <LocationList />
-    </Route>
-</LocationProvider>
-*/
+
+
